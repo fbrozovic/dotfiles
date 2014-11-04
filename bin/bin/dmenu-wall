@@ -12,3 +12,5 @@ WALLPAPER=`ls $WALLPAPER_DIR \
 SET="imlibsetroot -s f"
 
 $SET $WALLPAPER_DIR/$WALLPAPER
+
+echo $WALLPAPER_DIR/$WALLPAPER > ~/.wallpaper

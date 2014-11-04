@@ -8,7 +8,7 @@ xrdb -merge "${HOME}/.Xresources"
 xset r rate 250 50
 xsetroot -solid black
 xsetroot -cursor_name left_ptr
-imlibsetroot -s f /usr/share/wallpapers/owhjbi.jpg &
+imlibsetroot -s f $(cat ~/.wallpaper) &
 #transmission-daemon &
 compton -r 12 -o 0.5 -c -b
 unclutter -idle 5 -noevents &
