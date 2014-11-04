@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S xorg-xinit xorg-xclock artwiz-fonts unclutter
+	@sudo pacman --needed -S xorg-xinit xorg-xclock artwiz-fonts unclutter gnome-themes-standard lxappearance
 	@yaourt --needed -S bar-aint-recursive-git imlibsetroot compton-git
