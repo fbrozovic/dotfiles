@@ -10,10 +10,10 @@
 #define SHIFT           ShiftMask   /* Shift key */
 
 /* EDIT THIS: general settings */
-#define MASTER_SIZE     0.6       /* master-stack ratio */
-#define SHOW_PANEL      False     /* show panel by default on exec */
+#define MASTER_SIZE     0.52      /* master-stack ratio */
+#define SHOW_PANEL      True      /* show panel by default on exec */
 #define TOP_PANEL       True      /* False mean panel is on bottom */
-#define PANEL_HEIGHT    18        /* 0 for no space for panel, thus no panel */
+#define PANEL_HEIGHT    14        /* 0 for no space for panel, thus no panel */
 #define DEFAULT_MODE    TILE      /* TILE MONOCLE BSTACK GRID FIBONACCI EQUAL */
 #define ATTACH_ASIDE    True      /* False means new window is master */
 #define FOLLOW_MOUSE    False     /* Focus the window the mouse just entered */
@@ -22,31 +22,32 @@
 #define BORDER_WIDTH    2         /* window border width */
 #define FOCUS           "#cccccc" /* focused window border color   */
 #define UNFOCUS         "#121212" /* unfocused window border color */
-#define DESKTOPS        10        /* number of desktops - edit DESKTOPCHANGE keys to suit */
+#define DESKTOPS        6         /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus on exec */
 #define MINWSZ          50        /* minimum window size in pixels */
-#define USELESSGAP      8         /* the size of the useless gap in pixels */
+#define USELESSGAP      4         /* the size of the useless gap in pixels */
 #define GLOBALGAPS      True      /* use the same gap size on all desktops */
 #define MONOCLE_BORDERS False     /* display borders in monocle mode */
 #define INVERT          False     /* use alternative modes by default */
 #define AUTOCENTER      True      /* automatically center windows floating by default */
 #define OUTPUT_TITLE    False     /* output the title of the currently active window */
-#define USE_SCRATCHPAD  True      /* enable the scratchpad functionality */
+#define USE_SCRATCHPAD  False     /* enable the scratchpad functionality */
 #define SCRPDNAME       "scratchpad" /* the name of the scratchpad window */
 
 /*
  * EDIT THIS: applicaton specific rules
  * Open applications to specified desktop with specified mode.
  * If desktop is negative, then current is assumed. Desktops are 0-indexed.
- * The matching is done via POSIX-regexes on the window title, see
- * https://en.wikipedia.org/wiki/Regular_expression#POSIX_extended for syntax
  * Sadly, this can not be empty (for now), so enter something non-existent if
- * you do not wish to use this functionality.
+ * you do not wish to use this functionality
  */
 static const AppRule rules[] = { \
     /*  class     desktop  follow  float */
-    { "GNU Image",-1,      False,  True },
-    { "Skype",     3,      False,  True },
+    { "vlc",         3,    True,    False },
+    { "weechat",     2,    False,   False },     
+    { "cmus",        2,    False,   False },     
+    { "ranger",     -1,    False,   True },     
+    { "sxiv",       -1,    False,   True },     
 };
 
 /* helper for spawning shell commands, usually you don't edit this */
@@ -56,15 +57,24 @@ static const AppRule rules[] = { \
  * EDIT THIS: commands
  * Adjust and add these to the shortcuts below to launch anything you want by
  * pressing a key (combination). The last argument should ALWAYS be a null
- * pointer. scrpcmd needs to be defined and different from all other commands
- * (like the example) so FrankenWM can tell when you want to open a scratchpad
- * window. The title of the scratchpad window should also match SCRPDNAME from
- * above
+ * pointer.
  */
-static const char *termcmd[] = { "xterm",     NULL };
-static const char *menucmd[] = { "dmenu_run", NULL };
-static const char *scrpcmd[] = { "xterm", "-T", "scratchpad", NULL };
-/* static const char *scrpcmd[] = { "urxvt", "-name", "scratchpad",  NULL }; */
+static const char *termcmd[]        = { "termite", NULL };
+static const char *webcmd[]         = { "google-chrome-stable", NULL };
+static const char *filecmd[]        = { "rclick.menu", NULL };
+static const char *menucmd[]        = { "dmenu-recent", NULL };
+static const char *autostartcmd[]   = { "autostart", NULL };
+static const char *calccmd[]        = { "dmenu-calc", NULL };
+static const char *wallcmd[]        = { "dmenu-wall", NULL };
+static const char *playcmd[]        = { "cmus-remote", "-u", NULL };
+static const char *stopcmd[]        = { "cmus-remote", "-s", NULL };
+static const char *pausecmd[]       = { "cmus-remote", "-p", NULL };
+static const char *nextcmd[]        = { "cmus-remote", "-n", NULL };
+static const char *prevcmd[]        = { "cmus-remote", "-r", NULL };
+static const char *volupcmd[]       = { "exec", "amixer", "-q", "set", "PCM", "2dB+", "unmute", NULL };
+static const char *voldncmd[]       = { "exec", "amixer", "-q", "set", "PCM", "2dB-", "unmute", NULL };
+static const char *volmutecmd[]     = { "exec", "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *scrpcmd[]        = { "termite", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -129,10 +139,24 @@ static key keys[] = {
     {  MOD4|SHIFT,       XK_e,          switch_mode,       {.i = EQUAL}},
 
     /* spawn terminal, dmenu, w/e you want to */
-    {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
+    {  MOD4,             XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
+    {  MOD4,             XK_a,          spawn,             {.com = autostartcmd}},
+    {  MOD4,             XK_q,          spawn,             {.com = menucmd}},
+    {  MOD4,             XK_b,          spawn,             {.com = webcmd}},
+    {  MOD4,             XK_c,          spawn,             {.com = calccmd}},
+    {  MOD4,             XK_w,          spawn,             {.com = wallcmd}},
+    {  0,      XF86XK_AudioPlay,        spawn,             {.com = playcmd}}, 
+    {  0,      XF86XK_AudioPause,       spawn,             {.com = pausecmd}}, 
+    {  0,      XF86XK_AudioNext,        spawn,             {.com = nextcmd}}, 
+    {  0,      XF86XK_AudioPrev,        spawn,             {.com = prevcmd}}, 
+    {  0,      XF86XK_AudioStop,        spawn,             {.com = stopcmd}}, 
+    {  0,      XF86XK_AudioRaiseVolume, spawn,             {.com = volupcmd}}, 
+    {  0,      XF86XK_AudioLowerVolume, spawn,             {.com = voldncmd}}, 
+    {  0,      XF86XK_AudioMute,        spawn,             {.com = volmutecmd}}, 
+    {  0,      XF86XK_Launch1,          spawn,             {.com = filecmd}}, 
     /* kill current window */
-    {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
+    {  MOD4|SHIFT,       XK_q,          killclient,        {NULL}},
 
     /* desktop selection */
        DESKTOPCHANGE(    XK_1,                             0)
@@ -141,10 +165,6 @@ static key keys[] = {
        DESKTOPCHANGE(    XK_4,                             3)
        DESKTOPCHANGE(    XK_5,                             4)
        DESKTOPCHANGE(    XK_6,                             5)
-       DESKTOPCHANGE(    XK_7,                             6)
-       DESKTOPCHANGE(    XK_8,                             7)
-       DESKTOPCHANGE(    XK_9,                             8)
-       DESKTOPCHANGE(    XK_0,                             9)
     /* toggle to last desktop */
     {  MOD4,             XK_Tab,        last_desktop,      {NULL}},
     /* jump to the next/previous desktop */
@@ -180,4 +200,3 @@ static Button buttons[] = {
     {  MOD4,    Button3,     mousemotion,   {.i = RESIZE}},
 };
 #endif
-
