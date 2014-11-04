@@ -1,4 +1,5 @@
 /* see LICENSE for copyright and license */
+#include <X11/XF86keysym.h>
 
 #ifndef CONFIG_H
 #define CONFIG_H
