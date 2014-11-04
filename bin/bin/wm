@@ -1,0 +1,30 @@
+#!/bin/sh
+#monsterm invocation script
+
+ff="/tmp/monsterm.fifo"
+[[ -p $ff ]] || mkfifo -m 600 "$ff"
+
+ds=('Home' 'Web' 'Chat' 'Code' 'Media' 'Msgs')
+ms=('Tiled' 'Monocle' 'Bottom' 'Grid' 'Float' )
+
+while read -t 60 -r wmout || true; do
+                unset music
+                music=$(cmus-remote -Q | awk '$2 == "artist"{a=substr($0,12)} $2 == "title"{t=substr($0,11); exit} END{printf("%s - %s\n",a,t); exit(!t)}')
+                title=$(xtitle | head -c 70)
+                vreme=$(date +%I:%M)
+        if [[ $wmout =~ ^(([[:digit:]]+:)+[[:digit:]]+ ?)+$ ]]; then
+                unset r
+                read -ra desktops <<< "$wmout"
+                for desktop in "${desktops[@]}"; do
+                        IFS=':' read -r d w m c u <<< "$desktop"
+                        ((c)) && fg="1" bg="4" lc="\u1 " rc=" \ur" i="${ms[$m]}" || fg="8" bg="9" lc=" " rc=" "
+                        ((w)) && ((! c)) && fg="4" lc="\ur " rc=" \ur"
+                        ((u)) && fg="3" lc="\ur " rc=" \ur"
+                        r+="\f$fg\b$bg$lc${ds[$d]}$rc\fr\b9"
+                done
+            fi
+                        printf "\\\l%s\\\r%s\n"  "$r  \f1\b9\c $title \fr\b9" "\f1\b5 $i \f1\b2 $music \f1\b3 $vreme \fr\b9"
+done < "$ff" | bar -f &
+
+monsterwm > "$ff"
+rm $ff

@@ -1,0 +1,18 @@
+syntax on
+filetype plugin on
+colorscheme euphrasia
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+set laststatus=2
+set clipboard=unnamed " yank to X clipboard
+set pastetoggle=<F2>
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set showmatch
+set incsearch
