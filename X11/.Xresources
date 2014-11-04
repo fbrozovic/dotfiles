@@ -24,7 +24,6 @@ Xft.antialias: 1
 Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-! ! tingol colors
 URxvt*foreground: #E6E6E6
 URxvt*background: #1c2027
 !black

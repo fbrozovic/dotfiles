@@ -48,10 +48,6 @@ groups() {
     xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'
 }
 
-mail() {
-    ls -rA1 /home/tingol/mail/INBOX/new | wc -l
-}
-
 # This loop will fill a buffer with our infos, and output it to stdout.
 while :; do
     buf="%{l} %{B#FF1c2027} "
