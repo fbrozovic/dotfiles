@@ -70,6 +70,7 @@ _isroot=false
 
 # Exports
   export PATH=~/bin:/usr/local/bin:$PATH
+  export EDITOR=vim
   # Colored manpages
     if $_isxrunning; then
       export PAGER=less
@@ -100,22 +101,6 @@ _isroot=false
     alias vi='vim'
 
     alias ffs='sudo $(history -p \!\!)'
-
-
-#          git config --global user.name $NAME
-#          git config --global user.email $EMAIL
-#          git config --global github.user $USER
-#          git config --global color.ui true
-#          git config --global color.status auto
-#          git config --global color.branch auto
-#          git config --global color.diff auto
-#          git config --global diff.color true
-#          git config --global core.filemode true
-#          git config --global push.default matching
-#          git config --global core.editor $EDITOR
-#          git config --global format.signoff true
-#          git config --global alias.reset 'reset --soft HEAD^'
-#          git config --global alias.graph 'log --graph --oneline --decorate'
   # up: goes up many dirs as the number passed as argument, if none goes up by 1 by default
     up() {
       local d=""
