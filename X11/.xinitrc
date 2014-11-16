@@ -3,6 +3,7 @@ xsetroot -cursor_name watch
 command -v warpcursor && warpcursor 1
 xset +fp /usr/share/fonts/artwiz-fonts
 xset +fp /usr/share/fonts/local
+xset +fp ~/.fonts
 xset fp rehash
 xrdb -merge "${HOME}/.Xresources"
 xset r rate 250 50
@@ -12,5 +13,4 @@ imlibsetroot -s f $(cat ~/.wallpaper) &
 #transmission-daemon &
 compton -r 12 -o 0.5 -c -b
 unclutter -idle 5 -noevents &
-barstatus | bar-aint-recursive -d -f "*-lime-*-*-*-*-10-*-*-*-*-*-*-*" &
-exec frankenwm
+exec bspwm
