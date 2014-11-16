@@ -3,4 +3,4 @@
 prereq:
 
 install:
-	@yaourt --needed -S dmenu2
+	@yaourt --noconfirm --needed -S dmenu2

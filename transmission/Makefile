@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S transmission-cli
+	@sudo pacman --noconfirm --needed -S transmission-cli
 

@@ -3,7 +3,7 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S gvim python2-pip python2
+	@sudo pacman --noconfirm --needed -S gvim python2-pip python2
 	@pip2 install --user git+git://github.com/Lokaltog/powerline
 	@wget -O /tmp/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 	@wget -O /tmp/10-powerline-symbols.conf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf

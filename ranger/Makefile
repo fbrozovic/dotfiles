@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S ranger
+	@sudo pacman --noconfirm --needed -S ranger
 

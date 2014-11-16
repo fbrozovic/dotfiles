@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@yaourt --needed -S termite-git
+	@yaourt --noconfirm --needed -S termite-git
 

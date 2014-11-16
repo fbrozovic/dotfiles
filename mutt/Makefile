@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S mutt
+	@sudo pacman --noconfirm --needed -S mutt
 

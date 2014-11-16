@@ -3,4 +3,4 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S dunst
+	@sudo pacman --noconfirm --needed -S dunst

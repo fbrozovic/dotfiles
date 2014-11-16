@@ -21,8 +21,8 @@ $(INSTALLCONFIGDIRS):
 prereq-global:
 	@[ -f /etc/arch-release ] || (echo \*\*\* Not running on Arch Linux. Stop. && exit 1)
 	@echo Making sure the system is up to date...
-	@sudo pacman -Syu
-	@if hash stow; then echo "GNU Stow found"; else sudo pacman -S stow; fi
+	@sudo pacman --noconfirm --needed -Syu
+	@if hash stow; then echo "GNU Stow found"; else sudo pacman --noconfirm --needed -S stow; fi
 
 
 .PHONY: all prereq install install-config $(PREREQDIRS) $(INSTALLDIRS) $(INSTALLCONFIGDIRS)

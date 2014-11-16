@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S tmux
+	@sudo pacman --noconfirm --needed -S tmux
 

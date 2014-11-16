@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@yaourt --needed -S hnb
+	@yaourt --noconfirm --needed -S hnb
 

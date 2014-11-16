@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@yaourt --needed -S prezto-git
+	@yaourt --noconfirm --needed -S prezto-git
 

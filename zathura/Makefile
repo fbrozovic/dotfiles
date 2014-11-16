@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S zathura zathura-djvu zathura-pdf-mupdf zathura-ps
+	@sudo pacman --noconfirm --needed -S zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 

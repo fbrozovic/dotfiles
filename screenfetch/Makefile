@@ -3,5 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S screenfetch
+	@sudo pacman --noconfirm --needed -S screenfetch
 

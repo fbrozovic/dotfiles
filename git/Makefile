@@ -3,4 +3,4 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S git
+	@sudo pacman --noconfirm --needed -S git
