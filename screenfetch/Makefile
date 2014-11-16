@@ -3,4 +3,5 @@
 prereq:
 
 install:
-	@sudo pacman --needed -S archey3
+	@sudo pacman --needed -S screenfetch
+
