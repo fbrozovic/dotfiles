@@ -83,21 +83,21 @@ while true; do
   pid=$!
 
   while kill -0 $pid &> /dev/null; do
-    printf "[.   ] Downloading torrents !!\r"
+    printf "[.   ] Downloading torrents...\r"
     sleep .4s
-    printf "[ .  ] Downloading torrents !!\r"
+    printf "[ .  ] Downloading torrents...\r"
     sleep .4s
-    printf "[  . ] Downloading torrents !!\r"
+    printf "[  . ] Downloading torrents...\r"
     sleep .4s
-    printf "[   .] Downloading torrents !!\r"
+    printf "[   .] Downloading torrents...\r"
     sleep .4s
-    printf "[  . ] Downloading torrents !!\r"
+    printf "[  . ] Downloading torrents...\r"
     sleep .4s
-    printf "[ .  ] Downloading torrents !!\r"
+    printf "[ .  ] Downloading torrents...\r"
     sleep .4s
   done
 
-  printf "[DONE] Downloading torrents !!\n\n"
+  printf "[DONE] Downloading torrents...\n\n"
   break
 done
 
