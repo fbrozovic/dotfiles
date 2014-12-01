@@ -7,5 +7,13 @@ ssh -X user@example.com
 To launch a specific x application over SSH:
 ssh -X -t user@example.com 'chromium-browser'
 
+To use transparent multi-hop SSH, add this to your configuration (~/.config):
+Host <alias for host>
+  ProxyCommand ssh -q user@ssh-gateway nc <hostname of target machine> 22
+
+For example, to reach a machine named helix via the gateway xargs.net using the alias helix.xargs.net:
+Host helix.xargs.net
+  ProxyCommand ssh -q root@xargs.net nc helix 22
+
 For more information, see:
 http://unix.stackexchange.com/q/12755/44856
