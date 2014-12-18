@@ -1,8 +1,7 @@
-source ~/.mutt/userconfig.muttrc
+source ~/.mutt/accounts/fbrozovic@gmail.com
 
-set folder      = imaps://imap.gmail.com/
-set spoolfile   = +INBOX
-mailboxes       = +INBOX
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/fbrozovic@gmail.com<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/accounts/fbrozovic@seal.ch<enter><change-folder>!<enter>'
 
 # Store message headers locally to speed things up.
 # If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things even more up.
@@ -13,9 +12,6 @@ set header_cache = ~/.cache/mutt
 # This will cost important disk usage according to your e-mail amount.
 #set message_cachedir = "~/.cache/mutt"
 
-# Specify where to save and/or look for postponed messages.
-set postponed = +[Gmail]/Drafts
-
 # Allow Mutt to open new imap connection automatically.
 unset imap_passive
 
@@ -25,15 +21,11 @@ set imap_keepalive = 300
 # How often to check for new mail (time in seconds).
 set mail_check = 120
 
-# Gmail automatically saves sent e-mails to +[Gmail]/Sent, so we do not want duplicates.
-unset record
+set mailcap_path = ~/.mutt/mailcap
 
-# SMTP configuration
-set realname = 'Filip Brozovic'
-set from = $imap_user
-set use_from = yes
-
-set smtp_url = smtps://$imap_user:$imap_pass@smtp.gmail.com
-set ssl_force_tls = yes
+auto_view text/html
+alternative_order text/plain text/enriched text/html
 
 source ~/.mutt/colors.muttrc
+
+macro attach B '<pipe-entry>cat >~/.cache/mutt-mail.html && google-chrome-stable ~/.cache/mutt-mail.html<enter>'
