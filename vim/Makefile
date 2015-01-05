@@ -1,7 +1,7 @@
 .PHONY: prereq install
 
 prereq:
-	@sudo pacman --noconfirm --needed -S git clang
+	@sudo pacman --noconfirm --needed -S git clang wget
 
 install:
 	@sudo pacman --noconfirm --needed -S gvim python2-pip python2
@@ -13,7 +13,6 @@ install:
 	@mkdir -p ~/.config/fontconfig/conf.d
 	@mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 	@sudo fc-cache -vf /usr/share/fonts/local
-	@git clone git://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	@vim +PluginInstall +qall
+	@[ -d ~/.vim/bundle/Vundle.vim ] || git clone git://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	@cd ~/.vim/bundle/YouCompleteMe && ./install --clang-completer --system-libclang
 

@@ -33,6 +33,12 @@ set imap_user = username@gmail.com
 set imap_pass = password
 ```
 
+#### vim
+Vundle needs to download the plugins listed in the vimrc:
+```
+vim +PluginInstall +qall
+```
+
 
 That's it, everything should now be nicely set up for the current user. You may want to change the GTK and Qt themes being used:
 
