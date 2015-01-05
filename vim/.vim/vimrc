@@ -1,5 +1,16 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on
+
 syntax on
-filetype plugin on
 colorscheme euphrasia
 
 python from powerline.vim import setup as powerline_setup
