@@ -14,5 +14,3 @@ install:
 	@mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 	@sudo fc-cache -vf /usr/share/fonts/local
 	@[ -d ~/.vim/bundle/Vundle.vim ] || git clone git://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	@cd ~/.vim/bundle/YouCompleteMe && ./install --clang-completer --system-libclang
-

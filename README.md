@@ -34,9 +34,10 @@ set imap_pass = password
 ```
 
 #### vim
-Vundle needs to download the plugins listed in the vimrc:
+Vundle needs to download the plugins listed in the vimrc, and YouCompleteMe needs to be configured to enable code completion:
 ```
 vim +PluginInstall +qall
+cd ~/.vim/bundle/YouCompleteMe && ./install --clang-completer --system-libclang
 ```
 
 
