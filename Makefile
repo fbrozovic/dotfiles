@@ -24,7 +24,12 @@ prereq-global:
 	@sudo pacman --noconfirm --needed -Syu
 	@if hash stow; then echo "GNU Stow found"; else sudo pacman --noconfirm --needed -S stow; fi
 
+post-install:
+	@echo Configuring vim plugins...
+	@vim +PluginInstall +qall
+	@~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang 
 
-.PHONY: all prereq install install-config $(PREREQDIRS) $(INSTALLDIRS) $(INSTALLCONFIGDIRS)
+
+.PHONY: all prereq install install-config $(PREREQDIRS) $(INSTALLDIRS) $(INSTALLCONFIGDIRS) post-install
 
 install-frankenwm/: install-git/

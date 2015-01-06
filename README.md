@@ -9,6 +9,7 @@ cd && git clone https://github.com/fbrozovic/dotfiles
 cd dotfiles
 make install
 make install-config
+make post-install
 ```
 
 ### User-specific setup
@@ -32,14 +33,6 @@ Mutt is configured to use a GMail account, so the only thing missing is to set u
 set imap_user = username@gmail.com
 set imap_pass = password
 ```
-
-#### vim
-Vundle needs to download the plugins listed in the vimrc, and YouCompleteMe needs to be configured to enable code completion:
-```
-vim +PluginInstall +qall
-cd ~/.vim/bundle/YouCompleteMe && ./install --clang-completer --system-libclang
-```
-
 
 That's it, everything should now be nicely set up for the current user. You may want to change the GTK and Qt themes being used:
 
