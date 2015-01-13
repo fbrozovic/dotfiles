@@ -1,7 +1,7 @@
 .PHONY: prereq install
 
 prereq:
-	@sudo pacman --noconfirm --needed -S git clang wget
+	@sudo pacman --noconfirm --needed -S git clang cmake wget
 
 install:
 	@sudo pacman --noconfirm --needed -S gvim python2-pip python2
