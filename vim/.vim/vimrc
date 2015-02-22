@@ -7,11 +7,33 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme euphrasia
+
+" color schemes
+
+" Euphrasia
+"colorscheme euphrasia
+
+" Solarized Dark
+"set background=dark
+"colorscheme solarized
+
+" Base16 Tomorrow
+"set background=dark
+"colorscheme base16-tomorrow
+
+" Smyck
+colorscheme smyck
+
+" The following lines may have to be uncommented in order for the terminal to
+" have a transparent background
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()

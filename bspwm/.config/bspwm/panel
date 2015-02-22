@@ -29,13 +29,13 @@ get_vol() {
 
   muted=$(amixer get $dev | egrep -o "\[off\]" | head -n1)
   if [ "$muted" != "" ]; then
-    icon=⮝
+    icon=$(echo -e "\u00c3")
   else
-    icon=⮞
+    icon=$(echo -e "\u00c5")
   fi
 
-  icon="%{F${FOREGROUND}}${icon}"
-  x="%{F#FF${BOLD_WHITE}}${x}"
+  icon="%{F#FF$WHITE}${icon}"
+  x="%{F#FF$BOLD_WHITE}${x}"
   printf "%s %s\n" ${icon} ${x}\%%
 }
 
@@ -43,28 +43,27 @@ get_bat () {
   if [ -d /sys/class/power_supply/BAT* ]; then
     percent=$(acpi | egrep -o [0-9]+%)
     percent=${percent:0:$(expr length $percent - 1)}
-    state=$(acpi | egrep -o "(Full|Discharging|Charging)")
+    state=$(acpi | egrep -o "(Full|Discharging|Charging|Unknown)")
   else
     return
   fi
 
-  percent="%{F#FF${BOLD_WHITE}}${percent}"
-
   if [ $state == "Full" ]; then
-    icon=⮎
-  elif [ $state == "Discharging" ]; then
+      icon=$(echo -e "\u00c2")
+  elif [ $state == "Discharging" -o $state == "Unknown" ]; then
     if [ $percent -gt 75 ]; then
-      icon=⮏
+      icon=$(echo -e "\u00f0")
     elif [ $percent -gt 30 ]; then
-      icon=⮑
+      icon=$(echo -e "\u00ef")
     else
-      icon=⮐
+      icon=$(echo -e "\u00ee")
     fi
   elif [ $state == "Charging" ]; then
-    icon=⮒
+    icon=$(echo -e "\u00b5")
   fi
 
-  icon="%{F${FOREGROUND}}${icon}"
+  percent="%{F#FF$BOLD_WHITE}${percent}"
+  icon="%{F#FF$WHITE}${icon}"
   printf "%s %s\n" ${icon} ${percent}\%% 
 }
 
@@ -77,19 +76,19 @@ get_song() {
   elif [ "$state" == "stopped" ]; then
     return
   elif [ "$state" == "paused" ]; then
-    icon=⮔
+    icon=$(echo -e "\u00e7")
   elif [ "$state" == "playing" ]; then
-    icon=⮓
+    icon=$(echo -e "\u00e6")
   fi
 
-  icon="%{F${FOREGROUND}}${icon}"
-  song="%{F#FF${BOLD_WHITE}}${song}"
+  icon="%{F#FF$WHITE}${icon}"
+  song="%{F#FF$BOLD_WHITE}${song}"
   printf "%s %s\n" ${icon} "${song}"
 }
 
 get_date() {
   date=$(date +"%a %b %d %I:%M %p")
-  date="%{F#FF${MAGENTA}}${date}"
+  date="%{F$DATE_TIME_FG}${date}"
 
   printf "%s\n" "$date"
 }
@@ -112,8 +111,8 @@ get_wifi() {
     color=$4
   fi
 
-  icon="%{F${color}}⮷"
-  essid="%{F#FF${BOLD_WHITE}}${essid}"
+  icon="%{F$color}$(echo -e "\u00ad")"
+  essid="%{F#FF$BOLD_WHITE}${essid}"
 
   printf "%s %s\n" ${icon} ${essid}
 }
@@ -129,13 +128,13 @@ get_ip_addr() {
   output=""
 
   if [ "$eth_ip" != "" ]; then
-    eth_icon="%{F${FOREGROUND}}E:"
-    eth_ip="%{F#FF${BOLD_WHITE}}${eth_ip}"
+    eth_icon="%{F#FF$WHITE}E:"
+    eth_ip="%{F#FF$BOLD_WHITE}${eth_ip}"
     output="${output}${eth_icon} ${eth_ip} "
   fi
   if [ "$wifi_ip" != "" ]; then
-    wifi_icon="%{F${FOREGROUND}}W:"
-    wifi_ip="%{F#FF${BOLD_WHITE}}${wifi_ip}"
+    wifi_icon="%{F#FF$WHITE}W:"
+    wifi_ip="%{F#FF$BOLD_WHITE}${wifi_ip}"
     output="${output}${wifi_icon} ${wifi_ip}"
   fi
 
@@ -151,8 +150,8 @@ while true; do
     IP=$(get_ip_addr $ETH_DEV $WIFI_DEV)
     MUSIC=$(get_song)
 
-    echo "T %{F#FF${YELLOW}}" $(whoami)@$(hostname) > "$PANEL_FIFO" &
-	echo $(echo "S ${MUSIC} ${IP} ${WIFI} ${VOL} ${BAT} ${DATE}" | tr -s '[:space:]') > "$PANEL_FIFO" &
+    echo "H%{F#FF${BLUE}}$(echo -e "\u00b9")  %{F#FF${RED}}$(hostname)" > "$PANEL_FIFO" &
+	echo "S ${MUSIC} ${IP} ${WIFI} ${VOL} ${BAT} ${DATE}" | tr -s '[:space:]' > "$PANEL_FIFO" &
     sleep 0.5s
 done &
 

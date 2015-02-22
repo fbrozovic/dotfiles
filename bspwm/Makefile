@@ -6,3 +6,4 @@ prereq:
 
 install:
 	@yaourt --noconfirm --needed -S bspwm-git sxhkd-git
+	@yaourt -needed -S termsyn

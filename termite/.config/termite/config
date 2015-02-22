@@ -15,10 +15,6 @@ search_wrap = true
 geometry = 560x400
 #icon_name = terminal
 
-# 0.0: opaque, 1.0: transparent
-transparency = 0.5
-pseudo_transparency = false
-
 # "system", "on" or "off"
 cursor_blink = off
 
@@ -32,40 +28,97 @@ browser = dwb
 # (default if unset: all graphic non-punctuation/space characters)
 word_chars = -A-Za-z,./?%&#:_=+@~
 
+# color schemes
+
+# Euphrasia
+#[colors]
+#foreground = #e6e6e6
+#foreground_bold = #fedfed
+#background = rgba(28, 32, 39, 0.85)
+#color0 = #0d1926
+#color1 = #c0392b
+#color2 = #3aaf75
+#color3 = #ffaa3e
+#color4 = #2980b9
+#color5 = #8e44ad
+#color6 = #00afff
+#color7 = #b3b3b3
+#color8 = #585858
+#color9 = #e74c3c
+#color10 = #72d5a3
+#color11 = #efdd6f
+#color12 = #3498db
+#color13 = #9b59b6
+#color14 = #4DC5DC
+#color15 = #e6e6e6
+
+# Solarized Dark
+#[colors]
+#foreground = #839496
+#foreground_bold = #eee8d5
+#background = rgba(0, 43, 54, 0.9)
+#cursor = #93a1a1
+#color0 = #073642
+#color1 = #dc322f
+#color2 = #859900
+#color3 = #b58900
+#color4 = #268bd2
+#color5 = #d33682
+#color6 = #2aa198
+#color7 = #eee8d5
+#color8 = #002b36
+#color9 = #cb4b16
+#color10 = #586e75
+#color11 = #657b83
+#color12 = #839496
+#color13 = #6c71c4
+#color14 = #93a1a1
+#color15 = #fdf6e3
+
+# Base16 Tomorrow Dark
+#[colors]
+#foreground = #c5c8c6
+#foreground_bold = #c5c8c6
+#background = rgba(29, 31, 33, 0.85)
+#cursor = #c5c8c6
+#color0 = #1d1f21
+#color1 = #cc6666
+#color2 = #b5bd68
+#color3 = #f0c674
+#color4 = #81a2be
+#color5 = #b294bb
+#color6 = #8abeb7
+#color7 = #c5c8c6
+#color8 = #969896
+#color9 = #cc6666
+#color10 = #b5bd68
+#color11 = #f0c674
+#color12 = #81a2be
+#color13 = #b294bb
+#color14 = #8abeb7
+#color15 = #ffffff
+
+# Smyck
 [colors]
-foreground = #e6e6e6
-foreground_bold = #fedfed
-#foreground_dim = #888888
-#background = #1c2027
-background = rgba(28, 32, 39, 0.85)
-#cursor = #dcdccc
-
-# my colors
-color0 = #0d1926
-color1 = #c0392b
-color2 = #3aaf75
-color3 = #ffaa3e
-color4 = #2980b9
-color5 = #8e44ad
-color6 = #00afff
-color7 = #b3b3b3
-color8 = #585858
-color9 = #e74c3c
-color10 = #72d5a3
-color11 = #efdd6f
-color12 = #3498db
-color13 = #9b59b6
-color14 = #4DC5DC
-color15 = #e6e6e6
-
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+foreground = #f7f7f7
+foreground_bold = #f7f7f7
+cursor = #f7f7f7
+background = rgba(27, 27, 27, 0.85)
+color0 = #000000
+color1 = #b84131
+color2 = #7da900
+color3 = #c4a500
+color4 = #62a3c4
+color5 = #ba8acc
+color6 = #207383
+color7 = #a1a1a1
+color8 = #7a7a7a
+color9 = #d6837c
+color10 = #c4f137
+color11 = #fee14d
+color12 = #8dcff0
+color13 = #f79aff
+color14 = #6ad9cf
+color15 = #f7f7f7
 
 # vim: ft=dosini
