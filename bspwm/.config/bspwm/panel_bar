@@ -60,7 +60,7 @@ while read -r line ; do
 						;;
 					u*)
 						# urgent desktop
-						wm_infos="${wm_infos}%{F$URGENT_FG}%{B$URGENT_BG} ${name} %{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$URGENT_FG}%{B$URGENT_BG}%{U$URGENT_UL}%{+u} ${name} %{-u}%{B-}%{F-}"
 						;;
 					L*)
 						# layout
