@@ -99,26 +99,49 @@ word_chars = -A-Za-z,./?%&#:_=+@~
 #color15 = #ffffff
 
 # Smyck
+#[colors]
+#foreground = #f7f7f7
+#foreground_bold = #f7f7f7
+#cursor = #f7f7f7
+#background = rgba(27, 27, 27, 0.85)
+#color0 = #000000
+#color1 = #b84131
+#color2 = #7da900
+#color3 = #c4a500
+#color4 = #62a3c4
+#color5 = #ba8acc
+#color6 = #207383
+#color7 = #a1a1a1
+#color8 = #7a7a7a
+#color9 = #d6837c
+#color10 = #c4f137
+#color11 = #fee14d
+#color12 = #8dcff0
+#color13 = #f79aff
+#color14 = #6ad9cf
+#color15 = #f7f7f7
+
+# Monokai
 [colors]
-foreground = #f7f7f7
-foreground_bold = #f7f7f7
-cursor = #f7f7f7
-background = rgba(27, 27, 27, 0.85)
-color0 = #000000
-color1 = #b84131
-color2 = #7da900
-color3 = #c4a500
-color4 = #62a3c4
-color5 = #ba8acc
-color6 = #207383
-color7 = #a1a1a1
-color8 = #7a7a7a
-color9 = #d6837c
-color10 = #c4f137
-color11 = #fee14d
-color12 = #8dcff0
-color13 = #f79aff
-color14 = #6ad9cf
-color15 = #f7f7f7
+foreground = #f8f8f2
+foreground_bold = #f8f8f2
+cursor = #f8f8f2
+background = #272822
+color0 = #272822
+color1 = #f92672
+color2 = #a6e22e
+color3 = #f4bf75
+color4 = #66d9ef
+color5 = #ae81ff
+color6 = #a1efe4
+color7 = #f8f8f2
+color8 = #75715e
+color9 = #f92672
+color10 = #a6e22e
+color11 = #f4bf75
+color12 = #66d9ef
+color13 = #ae81ff
+color14 = #a1efe4
+color15 = #f9f8f5
 
 # vim: ft=dosini

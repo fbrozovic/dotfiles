@@ -28,7 +28,10 @@ syntax on
 "colorscheme base16-tomorrow
 
 " Smyck
-colorscheme smyck
+"colorscheme smyck
+
+" Molokai
+colorscheme molokai
 
 " The following lines may have to be uncommented in order for the terminal to
 " have a transparent background
