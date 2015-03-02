@@ -6,6 +6,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 zstyle ':completion:*' insert-tab false
 
+# Aliases
+alias dir="dir --color=auto"
+alias egrep="egrep --color=auto"
+alias ffs='sudo $(fc -ln -1)'
+alias fgrep="fgrep --color=auto"
+alias lr="ls -R"
+alias ll="ls -alh"
+alias la="ll -A"
+alias lm="la | less"
+alias vdir="vdir --color=auto"
 alias vi="vim"
 alias zconfig="vim ~/.zshrc"
 
