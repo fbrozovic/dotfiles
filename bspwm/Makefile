@@ -5,5 +5,4 @@ prereq:
 	@sudo pacman --noconfirm --needed -S acpi
 
 install:
-	@yaourt --noconfirm --needed -S bspwm-git sxhkd-git
-	@yaourt -needed -S termsyn
+	@yaourt --noconfirm --needed -S bspwm-git sxhkd-git termsyn
