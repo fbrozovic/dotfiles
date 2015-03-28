@@ -150,7 +150,7 @@ while true; do
     IP=$(get_ip_addr $ETH_DEV $WIFI_DEV)
     MUSIC=$(get_song)
 
-    echo "H%{F#FF${BLUE}}$(echo -e "\u00b9")  %{F#FF${RED}}$(hostname)" > "$PANEL_FIFO" &
+    echo "H%{F#FF${CYAN}}$(echo -e "\u00b9")  %{F#FF${RED}}$(hostname)" > "$PANEL_FIFO" &
 	echo "S ${MUSIC} ${IP} ${WIFI} ${VOL} ${BAT} ${DATE}" | tr -s '[:space:]' > "$PANEL_FIFO" &
     sleep 0.5s
 done &

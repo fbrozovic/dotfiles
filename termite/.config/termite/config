@@ -122,26 +122,49 @@ word_chars = -A-Za-z,./?%&#:_=+@~
 #color15 = #f7f7f7
 
 # Monokai
+#[colors]
+#foreground = #f8f8f2
+#foreground_bold = #f8f8f2
+#cursor = #f8f8f2
+#background = #272822
+#color0 = #272822
+#color1 = #f92672
+#color2 = #a6e22e
+#color3 = #f4bf75
+#color4 = #66d9ef
+#color5 = #ae81ff
+#color6 = #a1efe4
+#color7 = #f8f8f2
+#color8 = #75715e
+#color9 = #f92672
+#color10 = #a6e22e
+#color11 = #f4bf75
+#color12 = #66d9ef
+#color13 = #ae81ff
+#color14 = #a1efe4
+#color15 = #f9f8f5
+
+# Monokai alternate (darker)
 [colors]
 foreground = #f8f8f2
-foreground_bold = #f8f8f2
+foreground_bold = #ffffff
 cursor = #f8f8f2
-background = #272822
+background = rgba(25, 26, 20, 0.95)
 color0 = #272822
-color1 = #f92672
-color2 = #a6e22e
-color3 = #f4bf75
-color4 = #66d9ef
-color5 = #ae81ff
-color6 = #a1efe4
-color7 = #f8f8f2
-color8 = #75715e
-color9 = #f92672
-color10 = #a6e22e
-color11 = #f4bf75
-color12 = #66d9ef
-color13 = #ae81ff
-color14 = #a1efe4
-color15 = #f9f8f5
+color1 = #a70334
+color2 = #74aa04
+color3 = #b6b649
+color4 = #01549e
+color5 = #89569c
+color6 = #1a83a6
+color7 = #cacaca
+color8 = #7c7c7c
+color9 = #f3044b
+color10 = #8dd006
+color11 = #cccc81
+color12 = #0383f5
+color13 = #a87db8
+color14 = #58c2e5
+color15 = #ffffff
 
 # vim: ft=dosini
