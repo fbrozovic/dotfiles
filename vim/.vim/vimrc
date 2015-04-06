@@ -1,36 +1,58 @@
 set nocompatible
 filetype off
 
+" 
+" -*- Plugins
+"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'rdnetto/YCM-Generator'
 call vundle#end()
 filetype plugin indent on
-
 syntax on
 
-" color schemes
+" -*- NERDTree
+let NERDTreeMapOpenInTab='<Enter>'
 
-" Euphrasia
+" -*- CtrlP
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<C-t>'],
+    \ 'AcceptSelection("t")': ['<CR>'],
+    \ }
+
+" -*- Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+"
+" -*- Color schemes
+"
+" -*- Euphrasia
 "colorscheme euphrasia
 
-" Solarized Dark
+" -*- Solarized Dark
 "set background=dark
 "colorscheme solarized
 
-" Base16 Tomorrow
+" -*- Base16 Tomorrow
 "set background=dark
 "colorscheme base16-tomorrow
 
-" Smyck
+" -*- Smyck
 "colorscheme smyck
 
-" Molokai
+" -*- Molokai
 colorscheme molokai
 
 " The following lines may have to be uncommented in order for the terminal to
@@ -38,10 +60,9 @@ colorscheme molokai
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
+"
+" -*- various options
+"
 set laststatus=2
 set clipboard=unnamed " yank to X clipboard
 set pastetoggle=<F2>
@@ -52,3 +73,51 @@ set softtabstop=4
 set expandtab
 set showmatch
 set incsearch
+
+"
+" -*- folding
+"
+set foldmethod=syntax
+set foldenable
+au BufRead * normal zR " unfold all folds when opening a file
+
+"
+" -*- key bindings
+"
+let mapleader = "\<Space>"
+
+" -*- function keys
+nmap <silent> <F3> :set relativenumber!<CR> :set nonumber!<CR>
+map <silent> <F5> :NERDTreeToggle<CR>
+map <silent> <F6> :TagbarToggle<CR>
+
+" -*- window split movements
+nmap <silent> <C-S-w> :wincmd w<CR>
+nmap <silent> <C-S-h> :wincmd h<CR>
+nmap <silent> <C-S-j> :wincmd j<CR>
+nmap <silent> <C-S-k> :wincmd k<CR>
+nmap <silent> <C-S-l> :wincmd l<CR>
+
+" -*- tab movements
+noremap <silent> <S-Tab> :tabn<CR>
+noremap <silent> <C-S-Tab> :tabp<CR>
+noremap <Leader>1 1gt
+noremap <Leader>2 2gt
+noremap <Leader>3 3gt
+noremap <Leader>4 4gt
+noremap <Leader>5 5gt
+noremap <Leader>6 6gt
+noremap <Leader>7 7gt
+noremap <Leader>8 8gt
+noremap <Leader>9 9gt
+noremap <Leader>0 0gt
+noremap <Leader>- 11gt
+noremap <silent> <Leader>= :tablast<CR>
+
+" -*- yank/paste to/from X clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
