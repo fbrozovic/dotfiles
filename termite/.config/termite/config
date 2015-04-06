@@ -28,6 +28,9 @@ browser = dwb
 # (default if unset: all graphic non-punctuation/space characters)
 word_chars = -A-Za-z,./?%&#:_=+@~
 
+# prevent termite from intercepting F11
+fullscreen = false
+
 # color schemes
 
 # Euphrasia
