@@ -155,6 +155,6 @@ while true; do
     sleep 0.5s
 done &
 
-cat "$PANEL_FIFO" | ~/.config/bspwm/panel_bar | bar-aint-recursive -g ${BARWIDTH}x${BARHEIGHT}+${EDGEWIDTH} -f "$PANEL_FONT_FAMILY" -F "$FOREGROUND" -B "$BACKGROUND" -u "$UNDERLINE_WIDTH" &
+cat "$PANEL_FIFO" | ~/.config/bspwm/panel_bar | lemonbar -g ${BARWIDTH}x${BARHEIGHT}+${EDGEWIDTH} -f "$PANEL_FONT_FAMILY" -F "$FOREGROUND" -B "$BACKGROUND" -u "$UNDERLINE_WIDTH" &
 
 wait
