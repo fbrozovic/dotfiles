@@ -9,7 +9,7 @@ WALLPAPER_DIR="/usr/share/wallpapers/"
 WALLPAPER=`ls $WALLPAPER_DIR \
 	| $DMENU -p "Choose a Wallpaper :"`
 
-SET="imlibsetroot -s f"
+SET="feh --bg-scale "
 
 $SET $WALLPAPER_DIR/$WALLPAPER
 
