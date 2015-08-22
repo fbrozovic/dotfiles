@@ -1,0 +1,4 @@
+#!/bin/sh
+
+hostname
+echo "#ff7070"

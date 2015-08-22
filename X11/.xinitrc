@@ -13,4 +13,4 @@ feh --bg-scale $(cat ~/.wallpaper) &
 #transmission-daemon &
 compton -r 12 -o 0.5 -c -b
 unclutter -idle 5 -noevents &
-exec bspwm
+exec i3

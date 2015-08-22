@@ -1,0 +1,13 @@
+#!/bin/sh
+
+song=$(cmus-remote -Q 2> /dev/null | awk '$2 == "artist"{a=substr($0,12)} $2 == "title"{t=substr($0,11); } END{printf("%s - %s\n",a,t); exit(!t)}')
+state=$(cmus-remote -Q 2> /dev/null | egrep -o "status (playing|paused|stopped)" | awk '{print $2}')
+
+if [ "$state" == "" ]; then
+return
+elif [ "$state" == "stopped" ]; then
+return
+elif [ "$state" == "playing" ]; then
+    echo $song
+    echo $song
+fi
